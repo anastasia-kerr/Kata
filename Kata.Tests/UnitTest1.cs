@@ -1,16 +1,10 @@
-namespace Kata.Tests
+namespace Kata.Tests;
+[TestFixture]
+public class CheckoutTests
 {
-    public class Tests
+    [Test]
+    public void GetTotalPrice_WhenItemsScanned_ApplySpecialPriceCorrectly()
     {
-        [SetUp]
-        public void Setup()
-        {
-        }
-
-        [Test]
-        public void Test1()
-        {
-            Assert.Pass();
-        }
+       
     }
 }
