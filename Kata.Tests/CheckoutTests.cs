@@ -1,11 +1,12 @@
 using Moq;
 
 namespace Kata.Tests;
+
 [TestFixture]
 public class CheckoutTests
 {
     [Test]
-    public void Scan_WhenItemsScanned_AddItemsToCart()
+    public void Scan_WhenItemsScanned_AddsItemsToCart()
     {
 
         var mockCart = new Mock<ICart>();
