@@ -3,7 +3,7 @@ public record PricingRule(int UnitPrice, (int Quantity, int Price)? SpecialPrice
 {
     public int CalculatePrice(int quantity)
     {
-        if (!HasSpecialPrice(quantity))
+        if (!IsSpecialPriceApplicable(quantity))
         {
             return quantity * UnitPrice;
         }
@@ -12,7 +12,7 @@ public record PricingRule(int UnitPrice, (int Quantity, int Price)? SpecialPrice
         int remainder = quantity % SpecialPrice.Value.Quantity;
         return sets * SpecialPrice.Value.Price + remainder * UnitPrice;
     }
-    private bool HasSpecialPrice(int quantity) {
+    private bool IsSpecialPriceApplicable(int quantity) {
 
         return SpecialPrice.HasValue && quantity >= SpecialPrice.Value.Quantity;
     }

@@ -18,7 +18,7 @@ public class Checkout : ICheckout
         foreach (var item in items)
         {
             var pricingRule = _pricingRules[item.Key];
-            int itemTotalPrice = 0;
+            var itemTotalPrice = 0;
             itemTotalPrice =  pricingRule.CalculatePrice(item.Value);
             total += itemTotalPrice;
         }

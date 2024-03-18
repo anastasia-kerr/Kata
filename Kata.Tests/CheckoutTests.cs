@@ -1,7 +1,6 @@
 using Moq;
 
 namespace Kata.Tests;
-
 [TestFixture]
 public class CheckoutTests
 {
