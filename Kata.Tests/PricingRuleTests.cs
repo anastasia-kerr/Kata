@@ -10,7 +10,7 @@ public class PricingRuleTests
 
         var total = rule.CalculatePrice(2);
 
-        Assert.AreEqual(100, total);
+        Assert.That(total, Is.EqualTo(100));
     }
 
     [Test]
@@ -20,7 +20,7 @@ public class PricingRuleTests
 
         var total = rule.CalculatePrice(3);
 
-        Assert.AreEqual(130, total);
+        Assert.That(total, Is.EqualTo(130));
     }
 
     [Test]
@@ -30,7 +30,7 @@ public class PricingRuleTests
 
         var total = rule.CalculatePrice(4); // 3 for special price + 1 at unit price
 
-        Assert.AreEqual(180, total); // 130 + 50
+        Assert.That(total, Is.EqualTo(180)); // 130 + 50
     }
 
     [Test]
@@ -40,7 +40,7 @@ public class PricingRuleTests
 
         var total = rule.CalculatePrice(6); // 2 sets of 3
 
-        Assert.AreEqual(260, total); // 130 * 2
+        Assert.That(total, Is.EqualTo(260)); // 130 * 2
     }
 
     [Test]
@@ -50,7 +50,7 @@ public class PricingRuleTests
 
         var total = rule.CalculatePrice(7); // 2 sets of 3 + 1 remainder
 
-        Assert.AreEqual(310, total); // (130 * 2) + 50
+        Assert.That(total, Is.EqualTo(310)); // (130 * 2) + 50
     }
 
     [Test]
@@ -60,6 +60,6 @@ public class PricingRuleTests
 
         var total = rule.CalculatePrice(1); // Below the special price quantity threshold
 
-        Assert.AreEqual(50, total); // Unit price only
+        Assert.That(total, Is.EqualTo(50)); // Unit price only
     }
 }
