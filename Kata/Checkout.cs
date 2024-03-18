@@ -14,28 +14,16 @@ public class Checkout : ICheckout
     public int GetTotalPrice()
     {
         var items = _cart.GetItems();
-        int total = 0;
+        var total = 0;
         foreach (var item in items)
         {
             var pricingRule = _pricingRules[item.Key];
             int itemTotalPrice = 0;
-            if (pricingRule.SpecialPrice.HasValue && item.Value >= pricingRule.SpecialPrice.Value.Quantity)
-            {
-                int sets = item.Value / pricingRule.SpecialPrice.Value.Quantity;
-                int remainder = item.Value % pricingRule.SpecialPrice.Value.Quantity;
-                itemTotalPrice = sets * pricingRule.SpecialPrice.Value.Price + remainder * pricingRule.UnitPrice;
-            }
-            else
-            {
-                itemTotalPrice = item.Value * pricingRule.UnitPrice;
-            }
+            itemTotalPrice =  pricingRule.CalculatePrice(item.Value);
             total += itemTotalPrice;
         }
         return total;
     }
 
-    public void Scan(string item)
-    {
-        _cart.AddItem(item);
-    }
+    public void Scan(string item) => _cart.AddItem(item);
 }
