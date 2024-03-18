@@ -5,7 +5,7 @@ namespace Kata.Tests;
 public class CheckoutTests
 {
     [Test]
-    public void GetTotalPrice_WhenItemsScanned_NumberOfItemsInTheCartIncreases()
+    public void GetTotalPrice_WhenItemsScanned_AddItemsToCart()
     {
 
         var mockCart = new Mock<ICart>();
