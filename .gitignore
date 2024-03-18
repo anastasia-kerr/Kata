@@ -7,3 +7,4 @@
 /.vs
 /bin/Debug/net8.0
 /Kata/obj
+/Kata.Tests/obj
